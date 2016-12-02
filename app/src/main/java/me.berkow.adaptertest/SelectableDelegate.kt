@@ -7,5 +7,4 @@ package me.berkow.adaptertest
 class SelectableDelegate : Selectable {
     override var isSelectable: Boolean = false
     override var isSelected: Boolean = false
-        get() = isSelectable && field
 }

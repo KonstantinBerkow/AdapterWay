@@ -18,6 +18,7 @@ import java.util.*
  */
 
 class AdapterFragment : Fragment() {
+
     private val binding = lazy(LazyThreadSafetyMode.NONE) { DataBindingUtil.findBinding<FragmentAdapterBinding>(view) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -16,6 +16,8 @@ import me.berkow.adaptertest.model.Message
 
 class MessageViewModel : ViewModel<Message>(), Selectable by SelectableDelegate() {
 
+    override val itemType = R.layout.message_layout
+
     private var binding: MessageLayoutBinding? = null
 
     override fun bindToView(view: View) {
@@ -26,8 +28,6 @@ class MessageViewModel : ViewModel<Message>(), Selectable by SelectableDelegate(
     override fun unbindFromView(view: View) {
         binding = null
     }
-
-    override val itemType = R.layout.message_layout
 
     override fun recycle() {
         super.recycle()

@@ -11,7 +11,10 @@ import me.berkow.adaptertest.Recyclable
 abstract class ViewModel<T> : Recyclable {
 
     private var view: View? = null
+
     var model: T? = null
+
+    abstract val itemType: Int
 
     fun attachToView(view: View) {
         this.view = view
@@ -26,8 +29,6 @@ abstract class ViewModel<T> : Recyclable {
     }
 
     protected abstract fun unbindFromView(view: View)
-
-    abstract val itemType: Int
 
     override fun recycle() {
         model = null

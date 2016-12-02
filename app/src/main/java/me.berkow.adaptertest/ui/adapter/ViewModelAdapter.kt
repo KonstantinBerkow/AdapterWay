@@ -28,11 +28,7 @@ class ViewModelAdapter(val data: MutableList<ViewModel<*>>) : RecyclerView.Adapt
         holder?.unbind()
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return data[position].itemType
-    }
+    override fun getItemViewType(position: Int): Int = data[position].itemType
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
+    override fun getItemCount(): Int = data.size
 }
