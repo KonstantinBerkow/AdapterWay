@@ -1,5 +1,6 @@
 package me.berkow.adaptertest.ui.fragment
 
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -17,12 +18,12 @@ import java.util.*
  */
 
 class AdapterFragment : Fragment() {
-    private var binding: FragmentAdapterBinding? = null
+    private val binding = lazy { DataBindingUtil.findBinding<FragmentAdapterBinding>(view) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentAdapterBinding.inflate(inflater, container, false)
+        val adapterBinding = FragmentAdapterBinding.inflate(inflater, container, false)
 
-        return binding!!.root
+        return adapterBinding.root
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class AdapterFragment : Fragment() {
         this.instantiateModels(models)
         val adapter = ViewModelAdapter(models)
 
-        binding!!.adapter = adapter
+        binding.value.adapter = adapter
     }
 
     private fun instantiateModels(models: MutableList<ViewModel<*>>) {
